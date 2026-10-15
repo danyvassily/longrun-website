@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LongRun — 30s film</title>
+<style>
+  :root { --fond:#0E0E11; --surface:#1A1A1F; --lavande:#5C8CFF; --menthe:#32D073;
+          --texte2:#9A9AA2; --blanc:#fff; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--fond); color: var(--blanc);
+    font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: calc(24px + env(safe-area-inset-top)) 20px calc(28px + env(safe-area-inset-bottom));
+    gap: 22px;
+  }
+  h1 { font-size: 22px; font-weight: 600; letter-spacing: -.01em; text-align: center; }
+  .sub { color: var(--texte2); font-size: 15px; text-align: center; max-width: 460px; line-height: 1.45; }
+  video {
+    width: 100%; max-width: 420px; aspect-ratio: 9/16;
+    background: #000; border-radius: 22px;
+    border: 1px solid rgba(255,255,255,.10);
+    box-shadow: 0 28px 70px rgba(0,0,0,.6);
+    display: block;
+  }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  a.btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 13px 24px; border-radius: 999px;
+    background: var(--menthe); color: #06210F;
+    font-weight: 600; font-size: 16px; text-decoration: none;
+    min-height: 48px;
+  }
+  a.ghost {
+    background: transparent; color: var(--blanc);
+    border: 1px solid rgba(255,255,255,.22);
+  }
+  .meta { color: var(--texte2); font-size: 13px; text-align: center; line-height: 1.6; }
+  .meta code { color: var(--lavande); }
+  a.home { color: var(--lavande); font-size: 14px; text-decoration: none; }
+</style>
+</head>
+<body>
+  <h1>LongRun — 30s product film</h1>
+  <p class="sub">A native macOS app that keeps your Mac awake while you work, and
+    surfaces the AI tools running on it.</p>
+
+  <video id="film" controls playsinline preload="metadata"
+         poster="poster.jpg" width="1080" height="1920">
+    <source src="longrun-promo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="row">
+    <a class="btn" href="longrun-promo.mp4" download>Download MP4 (with voice)</a>
+    <a class="btn ghost" href="longrun-promo-novoice.mp4" download>No-voice version</a>
+  </div>
+
+  <p class="meta">
+    1080 × 1920 · 9:16 · H.264 · 30 s<br>
+    <a class="home" href="../">← Back to the LongRun site</a> ·
+    <a class="home" href="subtitles.srt" download>subtitles.srt</a> ·
+    <a class="home" href="STORYBOARD.md">storyboard</a> ·
+    <a class="home" href="VO_SCRIPT.md">voice script</a>
+  </p>
+</body>
+</html>

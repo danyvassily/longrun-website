@@ -1,0 +1,192 @@
+/* ============================================================
+   LongRun — film promotionnel 1080x1920
+   Aucune animation CSS native ici : tout est pilote par
+   window.setTime(t) dans anim.js (opacites + transforms).
+   ============================================================ */
+:root {
+  --fond:      #0E0E11;
+  --surface:   #1A1A1F;
+  --surface2:  #22222A;
+  --lavande:   #5C8CFF;
+  --menthe:    #32D073;
+  --ambre:     #FFB020;
+  --rouge:     #FF6B6B;
+  --texte2:    #9A9AA2;
+  --blanc:     #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 1080px; height: 1920px;
+  overflow: hidden;
+  background: var(--fond);
+  font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  color: var(--blanc);
+  -webkit-font-smoothing: antialiased;
+}
+
+.stage {
+  position: relative;
+  width: 1080px; height: 1920px;
+  overflow: hidden;
+  background: var(--fond);
+}
+
+/* Chaque scene est independante : JS pilote son opacite */
+.scene {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* ---------------- SCENE 1 : ACCROCHE ---------------- */
+.scene-hook {
+  padding: 140px 120px 260px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: var(--fond);
+}
+.hook-lines { width: 100%; }
+.hook-l1, .hook-l2 {
+  font-size: 92px; font-weight: 600; line-height: 1.06;
+  letter-spacing: -0.02em;
+}
+.hook-l2 { color: var(--lavande); }
+.hook-l3 {
+  margin-top: 40px; font-size: 34px; font-weight: 400;
+  color: var(--texte2); letter-spacing: 0.01em;
+}
+.hook-progress {
+  position: absolute; left: 120px; right: 120px; top: 1180px;
+  height: 4px; border-radius: 4px;
+  background: rgba(255,255,255,.08); overflow: hidden;
+}
+.hook-progress i {
+  display: block; height: 100%; width: 100%;
+  background: var(--lavande);
+  border-radius: 4px;
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+/* ---------------- SCENE 2 : REVEIL ---------------- */
+.scene-awake { background: var(--fond); }
+.frame {
+  position: relative;
+  width: 840px;
+  border-radius: 28px;
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,.09);
+  box-shadow: 0 40px 90px rgba(0,0,0,.62), 0 2px 0 rgba(255,255,255,.05) inset;
+  overflow: hidden;
+}
+.frame-inner { overflow: hidden; }
+.frame-inner img { display: block; width: 100%; height: auto; }
+.badge {
+  position: absolute; top: 28px; right: 28px;
+  padding: 12px 22px; border-radius: 999px;
+  background: var(--menthe); color: #06210F;
+  font-size: 24px; font-weight: 600; letter-spacing: .01em;
+  box-shadow: 0 8px 24px rgba(50,208,115,.38);
+}
+
+/* ---------------- TITRES DE SCENE ---------------- */
+.cap { display: flex; flex-direction: column; align-items: center; gap: 34px; }
+.cap-title {
+  font-size: 40px; font-weight: 600; letter-spacing: -0.01em;
+  color: var(--blanc); opacity: .96;
+}
+.cap-legend {
+  font-size: 26px; font-weight: 500; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--texte2);
+}
+
+/* ---------------- SCENE 3 : LES OUTILS ---------------- */
+.scene-tools { background: var(--fond); }
+.frame--tall { width: 840px; height: 330px; }
+.frame-scroll { position: relative; height: 100%; }
+.frame-scroll img {
+  display: block; width: 100%; height: auto;
+}
+.hl {
+  position: absolute; left: 24px; right: 24px; height: 58px;
+  border-radius: 10px;
+  border: 2px solid var(--lavande);
+  background: rgba(92,140,255,.12);
+  opacity: 0;
+}
+#hl-a { top: 14px; }
+#hl-b { top: 76px; }
+#hl-c { top: 138px; }
+
+/* ---------------- SCENE 4 : PROTECTIONS ---------------- */
+.scene-guard { background: var(--fond); }
+.frame--tele { width: 920px; }
+.hl2 {
+  position: absolute; height: 104px;
+  border-radius: 14px;
+  border: 3px solid var(--menthe);
+  background: rgba(50,208,115,.10);
+  opacity: 0;
+}
+.hl2--bat { left: 182px; top: 106px; width: 142px; }
+.hl2--thm { left: 332px; top: 106px; width: 130px; }
+.lock {
+  padding: 16px 34px; border-radius: 999px;
+  background: rgba(50,208,115,.14);
+  border: 1px solid rgba(50,208,115,.42);
+  color: var(--menthe);
+  font-size: 26px; font-weight: 600;
+  opacity: 0;
+}
+
+/* ---------------- SCENE 5 : SIGNATURE ---------------- */
+.scene-sign {
+  background: linear-gradient(180deg, #5C8CFF 0%, #0E0E11 100%);
+}
+.sign-wrap {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 30px; padding: 0 120px;
+}
+.wordmark {
+  font-size: 132px; font-weight: 600;
+  letter-spacing: -0.035em; color: var(--blanc);
+  display: flex;
+}
+.wordmark span { opacity: 0; display: inline-block; }
+.sign-tag {
+  font-size: 40px; font-weight: 400; color: rgba(255,255,255,.80);
+  opacity: 0; letter-spacing: .005em;
+}
+.cta {
+  margin-top: 26px;
+  padding: 26px 62px; border-radius: 999px;
+  background: var(--menthe); color: #06210F;
+  font-size: 38px; font-weight: 600; letter-spacing: .005em;
+  box-shadow: 0 16px 44px rgba(0,0,0,.38);
+  opacity: 0;
+}
+
+/* ---------------- SOUS-TITRES ---------------- */
+.subs {
+  position: absolute; left: 120px; right: 120px; top: 1430px;
+  height: 130px;
+  display: flex; align-items: flex-start; justify-content: center;
+  pointer-events: none;
+}
+.subs span {
+  max-width: 840px; text-align: center;
+  font-size: 44px; font-weight: 600; line-height: 1.25;
+  color: var(--blanc);
+  text-shadow: 0 2px 12px rgba(0,0,0,.92), 0 0 3px rgba(0,0,0,.85);
+  opacity: 0;
+}
+
+/* ---------------- FONDU FINAL ---------------- */
+.final-fade {
+  position: absolute; inset: 0; background: #000;
+  opacity: 0; pointer-events: none;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LongRun — promo 1080x1920</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stage" id="stage">
+
+  <!-- ---------- SCENE 1 : ACCROCHE (0-5s) ---------- -->
+  <section class="scene scene-hook" id="hook">
+    <div class="hook-lines">
+      <h1 class="hook-l1" id="hl1">Your work doesn't stop</h1>
+      <h1 class="hook-l2" id="hl2">when you step away.</h1>
+      <p class="hook-l3" id="hl3">A native macOS app for long tasks.</p>
+    </div>
+    <div class="hook-progress" id="hprogress"><i></i></div>
+  </section>
+
+  <!-- ---------- SCENE 2 : REVEIL (5-12s) ---------- -->
+  <section class="scene scene-awake" id="awake">
+    <div class="frame" id="frame-awake">
+      <div class="frame-inner" id="awake-zoom">
+        <img src="../assets/full.png" alt="LongRun status screen">
+      </div>
+      <div class="badge" id="badge-awake">Keep awake</div>
+    </div>
+  </section>
+
+  <!-- ---------- SCENE 3 : LES OUTILS (12-19s) ---------- -->
+  <section class="scene scene-tools" id="tools">
+    <div class="cap">
+      <p class="cap-title">AI tools detected on your Mac</p>
+      <div class="frame frame--tall" id="frame-tools">
+        <div class="frame-inner frame-scroll" id="tools-scroll">
+          <img src="../assets/agents.png" alt="Detected AI tools and protected tasks">
+        </div>
+        <div class="hl" id="hl-a"></div>
+        <div class="hl" id="hl-b"></div>
+        <div class="hl" id="hl-c"></div>
+      </div>
+      <p class="cap-legend">Present &nbsp;·&nbsp; Active</p>
+    </div>
+  </section>
+
+  <!-- ---------- SCENE 4 : PROTECTIONS (19-24s) ---------- -->
+  <section class="scene scene-guard" id="guard">
+    <div class="cap">
+      <p class="cap-title">Battery and thermal safeguards</p>
+      <div class="frame frame--tele" id="frame-guard">
+        <div class="frame-inner">
+          <img src="../assets/telemetry.png" alt="Live battery and thermal telemetry">
+        </div>
+        <div class="hl2 hl2--bat" id="hl-bat"></div>
+        <div class="hl2 hl2--thm" id="hl-thm"></div>
+      </div>
+      <div class="lock" id="lock">Safeguards active</div>
+    </div>
+  </section>
+
+  <!-- ---------- SCENE 5 : SIGNATURE (24-30s) ---------- -->
+  <section class="scene scene-sign" id="sign">
+    <div class="sign-wrap">
+      <div class="wordmark" id="wordmark"></div>
+      <p class="sign-tag" id="sign-tag">Keep your flow going.</p>
+      <div class="cta" id="cta">Discover LongRun</div>
+    </div>
+  </section>
+
+  <!-- ---------- SOUS-TITRES ---------- -->
+  <div class="subs" id="subs"><span id="subtext"></span></div>
+
+  <!-- ---------- FONDU FINAL ---------- -->
+  <div class="final-fade" id="finalfade"></div>
+
+</div>
+<script src="anim.js"></script>
+</body>
+</html>
